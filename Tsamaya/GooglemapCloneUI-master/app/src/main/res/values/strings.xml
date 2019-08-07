@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">GoogleMap_Clone_BottomsheetLayout</string>
+    <!--<string name="app_name">GoogleMap_Clone_BottomsheetLayout</string>-->
+    <string name="app_name">Tsamaya</string>
     <string name="title_activity_maps">Map</string>
 </resources>

@@ -244,6 +244,7 @@
                             android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
+
                             android:background="@drawable/circleshape"
                             android:gravity="center">
 
@@ -284,6 +285,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
+                                android:id="@+id/traffic"
                                 android:src="@drawable/traficimg" />
 
                         </RelativeLayout>
