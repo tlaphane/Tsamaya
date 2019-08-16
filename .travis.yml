@@ -22,6 +22,7 @@ before_script:
 #- echo no | android create avd --force -n test -t $ANDROID_TARGET-22 --abi $ANDROID_ABI
 - emulator -avd test -no-skin -no-audio -no-window &
 - android-wait-for-emulator
+- ant debug install test
 - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
 script:
 #- Tsamaya/GooglemapCloneUI-master/gradlew build jacocoTestReport assembleAndroidTest
