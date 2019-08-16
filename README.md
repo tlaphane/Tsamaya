@@ -25,7 +25,8 @@ to plan their trip with ease and account for safety travels
 ## Installation
 On Linux
 ```bash
-$ git clone https://github.com/spmabz/time_table.git
+$ git clone https://github.com/tlaphane/Tsamaya.git
+
 
 ```
 
