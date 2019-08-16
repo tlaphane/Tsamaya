@@ -3,7 +3,7 @@
 For majority of public transport users, the lack of convenient access and knowledge to a variety of 
 of transport modes is an issue,resulting in inefficient and costly travel experiences.
 
-##What is our solution?
+## What is our solution?
 
 Our solution is to provide commuters with information so that they can plan their trips efficiently. 
 The South African transport industry contains insufficient information across these three 
@@ -13,7 +13,7 @@ to plan their trip with ease and account for safety travels
 
 |Release|Build        |Test    |
 |-------|-------------|-------:|
-|[![GitHub Release](https://img.shields.io/badge/release-v1.0-blue.svg)](https://github.com/spmabz/time_table/releases) |[![Build Status](https://travis-ci.org/spmabz/Tsamaya.svg?branch=master)](https://travis-ci.org/spmabz/Tsamaya)|[![codecov](https://codecov.io/gh/spmabz/time_table/branch/master/graph/badge.svg)]|
+|[![GitHub Release](https://img.shields.io/badge/release-v1.0-blue.svg)](https://github.com/spmabz/time_table/releases) |[![Build Status](https://travis-ci.org/spmabz/Tsamaya.svg?branch=master)](https://travis-ci.org/spmabz/Tsamaya)|[![codecov] |
 
 
 ## Table of Contents
