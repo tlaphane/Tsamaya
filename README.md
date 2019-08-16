@@ -13,7 +13,7 @@ to plan their trip with ease and account for safety travels
 
 |Release|Build        |Test    |
 |-------|-------------|-------:|
-|[![GitHub Release](https://img.shields.io/badge/release-v1.0-blue.svg)](https://github.com/spmabz/time_table/releases) |[![Build Status](https://travis-ci.org/spmabz/Tsamaya.svg?branch=master)](https://travis-ci.org/spmabz/Tsamaya)|[![codecov] |
+|[![GitHub Release](https://img.shields.io/badge/release-v1.0-blue.svg)](https://github.com/spmabz/time_table/releases) |[![Build Status](https://travis-ci.org/spmabz/Tsamaya.svg?branch=master)](https://travis-ci.org/spmabz/Tsamaya)| |
 
 
 ## Table of Contents
