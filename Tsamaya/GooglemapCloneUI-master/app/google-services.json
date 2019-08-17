@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "490890915616",
+    "firebase_url": "https://tsamaya-42805.firebaseio.com",
+    "project_id": "tsamaya-42805",
+    "storage_bucket": "tsamaya-42805.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490890915616:android:085e05830ae2ae21",
+        "android_client_info": {
+          "package_name": "com.example.chintugandhwani.googlemap_clone_bottomsheetlayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490890915616-5glocmdg6u8v8h78kgtfci9ptocpuqkn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chintugandhwani.googlemap_clone_bottomsheetlayout",
+            "certificate_hash": "6e6af3a3b9aa80bb0e3b26180ab4a4d024043438"
+          }
+        },
+        {
+          "client_id": "490890915616-4vl5bkt3ef10hofogq4g5eg3ibep9qa2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALA8u0RWSciZOfHTVW50dbDi4vZ5XJJv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490890915616-4vl5bkt3ef10hofogq4g5eg3ibep9qa2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
