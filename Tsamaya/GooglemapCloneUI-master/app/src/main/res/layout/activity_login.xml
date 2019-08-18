@@ -20,6 +20,7 @@
 
 
     <ImageView
+        android:id="@+id/van"
         android:layout_width="222dp"
         android:layout_height="240dp"
         android:layout_gravity="center_horizontal"
