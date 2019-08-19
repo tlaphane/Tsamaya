@@ -30,9 +30,8 @@ licenses:
   - 'android-sdk-preview-license-52d11cd2'
   - 'android-sdk-license-.+'
   - 'google-gdk-license-.+'
-  
- before_install:
-  
+ 
+before_install:
   - chmod +x Tsamaya/GooglemapCloneUI-master/gradlew 
   - Tsamaya/GooglemapCloneUI-master/gradlew dependencies || true
   
@@ -44,8 +43,8 @@ script:
   - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
   - Tsamaya/GooglemapCloneUI-master/gradlew clean createDebugCoverageReport jacocoTestReport
 
-branches:
-  only:
-    - master
+#branches:
+ # only:
+  #  - master
 after_success:
   - bash <(curl -s https://codecov.io/bash)
