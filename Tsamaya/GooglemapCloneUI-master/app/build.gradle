@@ -19,9 +19,7 @@ android {
         }
     }
 }
-gradle.projectsEvaluated {
-    connectedDebugAndroidTest.finalizedBy AndroidShowTestResults
-}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
