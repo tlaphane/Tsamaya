@@ -49,6 +49,12 @@ before_script:
 script:
  
   #- Tsamaya/GooglemapCloneUI-master/gradlew build connectedCheck -PdisablePreDex --stacktrace
+  - Tsamaya/GooglemapCloneUI-master/gradlew clean assemble test --tests com.google.protobuf.gradle.ProtobufJavaPluginTest --stacktrace
+  - Tsamaya/GooglemapCloneUI-master/gradlew  test --tests com.google.protobuf.gradle.ProtobufKotlinDslPluginTest --stacktrace
+  - Tsamaya/GooglemapCloneUI-master/gradlew  --tests com.google.protobuf.gradle.ProtobufAndroidPluginTest --stacktrace
+  - Tsamaya/GooglemapCloneUI-master/gradlew  test --tests com.google.protobuf.gradle.AndroidProjectDetectionTest --stacktrace
+  - Tsamaya/GooglemapCloneUI-master/gradlew  codenarcMain || (cat ./build/reports/codenarc/main.txt && false)
+  - Tsamaya/GooglemapCloneUI-master/gradlew  codenarcTest || (cat ./build/reports/codenarc/test.txt && false)
   - Tsamaya/GooglemapCloneUI-master/gradlew cAT
 
   - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
