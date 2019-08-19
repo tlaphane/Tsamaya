@@ -19,12 +19,22 @@
     <!--android:paddingRight="24dp">-->
 
 
+<<<<<<< HEAD
     <!--<ImageView-->
         <!--android:layout_width="222dp"-->
         <!--android:layout_height="240dp"-->
         <!--android:layout_gravity="center_horizontal"-->
         <!--android:layout_marginBottom="24dp"-->
         <!--android:src="@drawable/minivan" />-->
+=======
+    <ImageView
+        android:id="@+id/van"
+        android:layout_width="222dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/minivan" />
+>>>>>>> 69c4287a3ce87c88cd388de77b4a5549555c1d64
 
     <!--&lt;!&ndash; Email Label &ndash;&gt;-->
     <!--<android.support.design.widget.TextInputLayout-->
