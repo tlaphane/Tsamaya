@@ -41,7 +41,7 @@ script:
   - emulator -avd test -no-window -skin 768x1280 &
   - android-wait-for-emulator
   - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
-  - Tsamaya/GooglemapCloneUI-master/gradlew clean createDebugCoverageReport jacocoTestReport
+  - Tsamaya/GooglemapCloneUI-master/gradlew createDebugCoverageReport jacocoTestReport
 
 #branches:
  # only:
