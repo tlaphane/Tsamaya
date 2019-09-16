@@ -99,6 +99,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Boolean mLocationPermissionsGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
+    private boolean isFABOpen;
+    private FloatingActionButton fab1;
 
 
     @Override
@@ -138,7 +140,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .addOnConnectionFailedListener( this )
                 .build();
 
+        isFABOpen = false;
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonMenu);
+        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab1.setVisibility(View.GONE);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen){
+                    fab1.setVisibility(View.VISIBLE);
+                    showMenu();
+                }else{
+
+                    closeMenu();
+                    fab1.setVisibility(View.GONE);
+                }
+            }
+        });
 
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         tapactionlayout = (LinearLayout) findViewById(R.id.tap_action_layout);
@@ -225,6 +244,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+    }
+
+    private void showMenu(){
+        isFABOpen=true;
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+    }
+
+    private void closeMenu(){
+        isFABOpen=false;
+        fab1.animate().translationY(0);
     }
 
     // The callback for the management of the user settings regarding location

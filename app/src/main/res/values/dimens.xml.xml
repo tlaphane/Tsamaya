@@ -8,4 +8,5 @@
     <dimen name="custom_marker_padding">2dp</dimen>
     <dimen name="loginViewsMargin">20dp</dimen>
     <dimen name="signup_text_margin_top">10dp</dimen>
+    <dimen name="standard_55">55dp</dimen>
 </resources>

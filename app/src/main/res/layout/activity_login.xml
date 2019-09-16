@@ -8,7 +8,6 @@
     android:background="#1F5BF3"
     tools:context="com.example.codingmountain.googlemap_clone_bottomsheetlayout.LoginActivity">
 
-<<<<<<< HEAD
 
 
 <!--<LinearLayout-->
@@ -87,8 +86,6 @@
 
 <!--</LinearLayout>-->
 
-=======
->>>>>>> 809fbaf019faa95d0e984c93ec61c9628775abcc
     <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -129,6 +129,39 @@
 
          </android.support.design.widget.FloatingActionButton>
 
+         <android.support.design.widget.FloatingActionButton
+             android:id="@+id/floatingActionButtonMenu"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="16dp"
+             android:layout_marginRight="16dp"
+             android:layout_marginBottom="66dp"
+             app:elevation="6dp"
+             app:layout_anchor="@id/map"
+             app:layout_anchorGravity="bottom|left|end"
+             app:pressedTranslationZ="12dp"
+             app:srcCompat="@drawable/minivan"
+             >
+         </android.support.design.widget.FloatingActionButton>
+
+
+         <android.support.design.widget.FloatingActionButton
+             android:id="@+id/fab1"
+             android:layout_width="45dp"
+             android:layout_height="45dp"
+             android:layout_marginLeft="20dp"
+             android:layout_marginRight="5dp"
+             android:layout_marginBottom="68dp"
+
+             app:elevation="6dp"
+             app:layout_anchor="@id/map"
+             app:layout_anchorGravity="bottom|left|end"
+             app:pressedTranslationZ="12dp"
+
+             app:srcCompat="@android:drawable/btn_star_big_on">
+
+         </android.support.design.widget.FloatingActionButton>
+
      </android.support.design.widget.CoordinatorLayout>
 
     </FrameLayout>
