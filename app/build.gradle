@@ -48,6 +48,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:11.6.2'
     implementation 'com.google.firebase:firebase-firestore:11.6.2'
     implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
 }

@@ -46,6 +46,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -92,39 +93,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private AutoCompleteTextView mSearchText;
     private ImageView mGps;
+    MarkerOptions place1, place2, place3, place4, place5;
 
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
-
-    public void TrafficUpdate(View view){
-        bottomSheet = findViewById(R.id.bottom_sheet_traffic);
-        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
-        mBottomSheetBehavior1.setPeekHeight(120);
-        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    tapactionlayout.setVisibility(View.VISIBLE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
-    }
 
 
     @Override
@@ -140,6 +114,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient,
                 LAT_LNG_BOUNDS, null);
+
+        place1 = new MarkerOptions().position(new LatLng(-26.2599, 27.9424)).title("Bara Taxi Rank");
+        place2 = new MarkerOptions().position(new LatLng(-26.2014, 28.0375)).title("Bree Taxi Rank");
+        place3 = new MarkerOptions().position(new LatLng(-26.1428, 28.0416)).title("Rosebank Taxi Rank");
+        place4 = new MarkerOptions().position(new LatLng(-26.1057, 28.1016)).title("Alexandra Taxi Rank");
+        place5 = new MarkerOptions().position(new LatLng(-26.1994, 28.0471)).title("MTN Noord Taxi Rank");
+
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -279,6 +261,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.addMarker(place1);
+        mMap.addMarker(place2);
+        mMap.addMarker(place3);
+        mMap.addMarker(place4);
+        mMap.addMarker(place5);
+
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
@@ -469,12 +458,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //Creating a LatLng Object to store Coordinates
         LatLng latLng = new LatLng(latitude, longitude);
 
+        mMap.addMarker(place1);
+        mMap.addMarker(place2);
+
         //Adding marker to map
         mMap.addMarker(new MarkerOptions()
                 .position(latLng) //setting position
                 .draggable(true) //Making the marker draggable
-                .title("Current Location")); //Adding a title
-
+                .title("Current Location") //Adding a title
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icons8_user_location_80)));
         //Moving the camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
