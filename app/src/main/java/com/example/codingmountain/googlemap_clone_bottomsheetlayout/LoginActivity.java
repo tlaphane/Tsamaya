@@ -28,9 +28,11 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
     @BindView(R.id.link_signup) TextView _signupLink;
+   // @BindView(R.id.link_ForgetP) TextView ForgetP;
 
     private FirebaseAuth mAuth;
     private ProgressDialog mProgress;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,20 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mProgress = new ProgressDialog(this);
+
+        //forget password button
+        TextView textView=(TextView)findViewById(R.id.link_ForgetP);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ResetPasswordActivity.class);
+                startActivity(intent);
+
+                Toast.makeText(LoginActivity.this, "Forgot Password ", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
 
         ButterKnife.bind(this);
