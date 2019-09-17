@@ -50,6 +50,9 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(ResetPasswordActivity.this,"Please check your Email",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(ResetPasswordActivity.this,LoginActivity.class));
+                            }else {
+                                String error = task.getException().getMessage();
+                                Toast.makeText(ResetPasswordActivity.this,error,Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
