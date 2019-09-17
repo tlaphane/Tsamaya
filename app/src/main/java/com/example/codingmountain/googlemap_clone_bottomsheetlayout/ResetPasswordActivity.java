@@ -26,8 +26,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reset_password);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Reset Password");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
