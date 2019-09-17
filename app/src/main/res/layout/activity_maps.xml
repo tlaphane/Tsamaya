@@ -146,19 +146,21 @@
 
 
          <android.support.design.widget.FloatingActionButton
-             android:id="@+id/fab1"
+             android:id="@+id/ranks"
              android:layout_width="45dp"
              android:layout_height="45dp"
              android:layout_marginLeft="20dp"
              android:layout_marginRight="5dp"
              android:layout_marginBottom="68dp"
 
+
+             android:src="@drawable/minivan"
              app:elevation="6dp"
              app:layout_anchor="@id/map"
              app:layout_anchorGravity="bottom|left|end"
-             app:pressedTranslationZ="12dp"
 
-             app:srcCompat="@android:drawable/btn_star_big_on">
+
+             app:pressedTranslationZ="12dp">
 
          </android.support.design.widget.FloatingActionButton>
 

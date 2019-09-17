@@ -100,7 +100,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     private boolean isFABOpen;
-    private FloatingActionButton fab1;
+    private FloatingActionButton btnRanks;
 
 
     @Override
@@ -143,19 +143,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         isFABOpen = false;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonMenu);
-        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
-        fab1.setVisibility(View.GONE);
+        btnRanks = (FloatingActionButton) findViewById(R.id.ranks);
+        btnRanks.setVisibility(View.GONE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!isFABOpen){
-                    fab1.setVisibility(View.VISIBLE);
+                    btnRanks.setVisibility(View.VISIBLE);
                     showMenu();
                 }else{
 
                     closeMenu();
-                    fab1.setVisibility(View.GONE);
+                    btnRanks.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        btnRanks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Ranks.class);
+                startActivity(intent);
             }
         });
 
@@ -248,12 +256,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void showMenu(){
         isFABOpen=true;
-        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        btnRanks.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
     }
 
     private void closeMenu(){
         isFABOpen=false;
-        fab1.animate().translationY(0);
+        btnRanks.animate().translationY(0);
     }
 
     // The callback for the management of the user settings regarding location
