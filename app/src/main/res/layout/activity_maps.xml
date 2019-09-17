@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:sothree="http://schemas.android.com/tools"
+<android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -154,7 +152,7 @@
              android:layout_marginBottom="68dp"
 
 
-             android:src="@drawable/minivan"
+             android:src="@drawable/minibus"
              app:elevation="6dp"
              app:layout_anchor="@id/map"
              app:layout_anchorGravity="bottom|left|end"
