@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ResetPasswordActivity.class);
                 startActivity(intent);
 
-                Toast.makeText(LoginActivity.this, "Forgot Password ", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Create New Password ", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -153,13 +153,13 @@
             <Button
                 android:id="@+id/btn_login"
                 style="@style/loginButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/btn_rounded_corner"
-            android:padding="16dp"
-            android:textColor="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/btn_rounded_corner"
+                android:padding="16dp"
+                android:textColor="#ffffff"
                 android:text="Login" />
 
             <TextView

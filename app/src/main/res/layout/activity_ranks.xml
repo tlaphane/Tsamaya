@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Ranks">
 
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="92dp"
         tools:layout_editor_absoluteY="273dp" />
+
+
 </android.support.constraint.ConstraintLayout>
