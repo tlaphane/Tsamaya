@@ -26,7 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Routes"></activity>
-        <activity android:name=".Ranks" />
+        <activity android:name=".Ranks"
+            android:label="@string/title_activity_ranks"/>
         <activity android:name=".MapsActivityFind" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity">
