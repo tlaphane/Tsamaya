@@ -34,15 +34,14 @@
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"
-                    android:minHeight="?attr/actionBarSize"
                     android:layout_width="match_parent"
-                    app:titleTextColor="@color/grey"
+                    android:layout_height="?attr/actionBarSize"
                     android:background="@android:color/white"
+                    android:minHeight="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-                </android.support.v7.widget.Toolbar>
+                    app:titleTextColor="@color/grey"></android.support.v7.widget.Toolbar>
 
             </android.support.design.widget.AppBarLayout>
 
