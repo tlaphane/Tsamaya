@@ -1,5 +1,7 @@
 package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.action.ViewActions;
@@ -15,9 +17,11 @@ import org.junit.Rule;
 import org.junit.Test;
 
 
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.closeSoftKeyboard;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
@@ -28,6 +32,7 @@ public class LoginActivityTest {
     @Rule
     public ActivityTestRule<LoginActivity> activityActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
     private LoginActivity loginActivity = null;
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MapsActivity.class.getName(),null,false);
 
     @Before
     public void setUp() throws Exception {
@@ -49,13 +54,20 @@ public class LoginActivityTest {
 
     @Test
     public void login() {
-        ViewInteraction user_email = Espresso.onView( ViewMatchers.withId( R.id.input_email));
-        user_email.perform(ViewActions.typeText("spm@gmail.com"),ViewActions.closeSoftKeyboard());
-        //ViewInteraction pass = onView(withId(R.id.input_password));
-        //pass.perform(ViewActions.typeText("abc1") );
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        assertNotNull(loginActivity.findViewById(R.id.input_email));
+        assertNotNull(loginActivity.findViewById(R.id.input_password));
 
-        ViewInteraction button = Espresso.onView(ViewMatchers.withId(R.id.btn_login));
-        button.perform(click());
+
+        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.input_password)).perform(typeText("123456"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+
+        Activity MapActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
+
+        assertNotNull(MapActivity);
+
+        MapActivity.finish();
     }
 
     @Test
