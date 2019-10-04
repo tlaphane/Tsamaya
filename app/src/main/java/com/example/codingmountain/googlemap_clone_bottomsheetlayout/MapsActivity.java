@@ -158,16 +158,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-//        FloatingActionButton fab2 = findViewById(R.id.fab_action2);
-//        fab2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), RatingActivity.class);
-//                startActivity(intent);
-//
-//            }
-//        });
-//
+        FloatingActionButton fab2 = findViewById(R.id.fab_action2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RatingActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         FloatingActionButton fab3 = findViewById(R.id.fab_action3);
         fab3.setOnClickListener(new View.OnClickListener() {
