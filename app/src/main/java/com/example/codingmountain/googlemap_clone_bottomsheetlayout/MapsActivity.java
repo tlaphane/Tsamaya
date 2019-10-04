@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -105,6 +105,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     private boolean isFABOpen;
     private FloatingActionButton btnRanks;
+    private FloatingActionButton btnReports;
+    private FloatingActionButton btnLogout;
 
 
     @Override
@@ -145,85 +147,146 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .addOnConnectionFailedListener( this )
                 .build();
 
-        isFABOpen = false;
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonMenu);
-        btnRanks = (FloatingActionButton) findViewById(R.id.ranks);
-        btnRanks.setVisibility(View.GONE);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab1 = (FloatingActionButton)findViewById(R.id.fab_action1);
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(!isFABOpen){
-                    btnRanks.setVisibility(View.VISIBLE);
-                    showMenu();
-                }else{
-
-                    closeMenu();
-                    btnRanks.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        btnRanks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Ranks.class);
                 startActivity(intent);
+
             }
         });
+
+//        FloatingActionButton fab2 = findViewById(R.id.fab_action2);
+//        fab2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), RatingActivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
+//
+
+        FloatingActionButton fab3 = findViewById(R.id.fab_action3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
+
+//        isFABOpen = false;
+//
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonMenu);
+//
+//        btnRanks = (FloatingActionButton) findViewById(R.id.ranks);
+//        btnReports =(FloatingActionButton) findViewById(R.id.reports);
+//        btnLogout = (FloatingActionButton) findViewById(R.id.menuLogout);
+//
+//        btnRanks.setVisibility(View.GONE);
+//        btnReports.setVisibility(View.GONE);
+//        btnLogout.setVisibility(View.GONE);
+//
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(!isFABOpen){
+//                    btnRanks.setVisibility(View.VISIBLE);
+//                    btnReports.setVisibility(View.VISIBLE);
+//                    btnLogout.setVisibility(View.VISIBLE);
+//                    showMenu();
+//                }else{
+//
+//                    closeMenu();
+//                    btnRanks.setVisibility(View.GONE);
+//                    btnReports.setVisibility(View.GONE);
+//                    btnLogout.setVisibility(View.GONE);
+//                }
+//            }
+//        });
+//
+//        btnRanks.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), Ranks.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btnReports.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), RatingActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btnLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
-        tapactionlayout = (LinearLayout) findViewById(R.id.tap_action_layout);
-        bottomSheet = findViewById(R.id.bottom_sheet1);
-        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
-        mBottomSheetBehavior1.setPeekHeight(120);
-        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    tapactionlayout.setVisibility(View.VISIBLE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
+        //tapactionlayout = (LinearLayout) findViewById(R.id.tap_action_layout);
+        //bottomSheet = findViewById(R.id.bottom_sheet1);
+        //mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
+        //mBottomSheetBehavior1.setPeekHeight(120);
+//        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+//                    tapactionlayout.setVisibility(View.VISIBLE);
+//                }
+//
+//                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+//                    tapactionlayout.setVisibility(View.GONE);
+//                }
+//
+//                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+//                    tapactionlayout.setVisibility(View.GONE);
+//                }
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//
+//            }
+//        });
 
 
 
        // ButterKnife.bind(this);
-        Traffic = findViewById(R.id.traffic);
-        Traffic.setOnClickListener(new View.OnClickListener() {
+//        Traffic = findViewById(R.id.traffic);
+//        Traffic.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), MapsActivityFind.class);
+//                startActivity(intent);
+//
+//
+//            }
+//        });
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivityFind.class);
-                startActivity(intent);
-
-
-            }
-        });
-
-        tapactionlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mBottomSheetBehavior1.getState()==BottomSheetBehavior.STATE_COLLAPSED)
-                {
-                    mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
-            }
-        });
+//        tapactionlayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(mBottomSheetBehavior1.getState()==BottomSheetBehavior.STATE_COLLAPSED)
+//                {
+//                    mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_EXPANDED);
+//                }
+//            }
+//        });
 
         // Find the toolbar view inside the activity layout
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -264,12 +327,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void showMenu(){
         isFABOpen=true;
         btnRanks.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        btnReports.animate().translationY(-getResources().getDimension(R.dimen.standard_70));
+        btnLogout.animate().translationY(-getResources().getDimension(R.dimen.standard_90));
     }
 
     private void closeMenu(){
         isFABOpen=false;
         btnRanks.animate().translationY(0);
+        btnReports.animate().translationY(0);
+        btnLogout.animate().translationY(0);
     }
+
+
 
     // The callback for the management of the user settings regarding location
     private ResultCallback<LocationSettingsResult> mResultCallbackFromSettings = new ResultCallback<LocationSettingsResult>() {
