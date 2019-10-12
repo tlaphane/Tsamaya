@@ -41,17 +41,13 @@ public class MapsActivityTest {
     public void onCreate() throws InterruptedException {
 
         assertNotNull(loginActivity.findViewById(R.id.floatingActionButtonMenu));
-        assertNotNull(loginActivity.findViewById(R.id.toolbar));
         assertNotNull(loginActivity.findViewById(R.id.fab));
-        assertNotNull(loginActivity.findViewById(R.id.tap_action_layout));
 
         onView(withId(R.id.floatingActionButtonMenu)).perform(click());
         TimeUnit.SECONDS.sleep(2);
-        assertNotNull(loginActivity.findViewById(R.id.ranks));
+        assertNotNull(loginActivity.findViewById(R.id.fab_action1));
         onView(withId(R.id.floatingActionButtonMenu)).perform(click());
 
-
-        onView(withId(R.id.tap_action_layout)).perform(click());
         TimeUnit.SECONDS.sleep(2);
 
 

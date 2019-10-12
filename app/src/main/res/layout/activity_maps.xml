@@ -210,7 +210,9 @@
              android:layout_gravity="bottom|right|end"
              app:fab_addButtonColorPressed="#FF00FF"
              app:fab_addButtonPlusIconColor="@color/white"
-             app:fab_labelStyle="@style/custom_fab">
+             app:fab_labelStyle="@style/custom_fab"
+             android:id="@+id/floatingActionButtonMenu"
+             >
 
 
              <com.getbase.floatingactionbutton.FloatingActionButton
