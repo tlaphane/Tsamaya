@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -153,9 +154,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 //dataSnapshot.get
                 for(DataSnapshot rank : dataSnapshot.getChildren()) {
                     Destinations.add(rank.getKey() + " - " +rank.getValue() + " - " + dataSnapshot.getKey() + " Taxi Rank");
-
+                    System.out.println(rank.getKey() + " - " +rank.getValue() + " - " + dataSnapshot.getKey() + " Taxi Rank                                          its working Tshegofatso");
+//                    if(dataSnapshot.getKey().equals("Bree")){
+//                        mSearchText.setOnClickListener(new View.OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(View v) {
+//                                // TODO Auto-generated method stub
+//                                onMarkerClick(Place1);
+//
+//                            }
+//                        });
+//                    }
 
                 }
+
                 arrayAdapter.notifyDataSetChanged();
 
             }
@@ -178,6 +191,30 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 
+            }
+        });
+
+        mSearchText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View arg1, int position, long arg3) {
+                Object item = parent.getItemAtPosition(position);
+                System.out.println(item + "This is what user clicked                                                    ..................................");
+                if(item.toString().contains("Bara")){
+                    onMarkerClick(Place1);
+                }
+                if(item.toString().contains("Bree")){
+                    onMarkerClick(Place2);
+                }
+                if(item.toString().contains("Rosebank")){
+                    onMarkerClick(Place3);
+                }
+                if(item.toString().contains("Alexandra")){
+                    onMarkerClick(Place4);
+                }
+                if(item.toString().contains("Noord")){
+                    onMarkerClick(Place5);
+                }
             }
         });
         //mGps = (ImageView) findViewById(R.id.ic_gps);
@@ -780,7 +817,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (m.contains("Taxi Rank")) {
             //handle click here
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Do you want to got to " + m + "?")
+            builder.setMessage("Do you want to go to " + m + "?")
                     .setCancelable(true)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
