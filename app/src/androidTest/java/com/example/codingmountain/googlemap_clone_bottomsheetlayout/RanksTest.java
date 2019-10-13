@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -38,7 +40,7 @@ public class RanksTest {
     }
 
     @Test
-    public void OnCreate(){
+    public void OnCreate() throws InterruptedException {
 
         assertNotNull(loginActivity.findViewById(R.id.btn_login));
         assertNotNull(loginActivity.findViewById(R.id.input_email));
@@ -54,8 +56,10 @@ public class RanksTest {
         assertNotNull(map.findViewById(R.id.floatingActionButtonMenu));
         onView(withId(R.id.floatingActionButtonMenu)).perform(click());
 
-        assertNotNull(map.findViewById(R.id.ranks));
-        onView(withId(R.id.ranks)).perform(click());
+        assertNotNull(map.findViewById(R.id.fab_action1));
+        onView(withId(R.id.fab_action1)).perform(click());
+        onView(withId(R.id.fab_action1)).perform(click());
+        TimeUnit.SECONDS.sleep(5);
 
         Activity ranks = getInstrumentation().waitForMonitorWithTimeout(ranksMonitor,10000);
         assertNotNull(ranks);
