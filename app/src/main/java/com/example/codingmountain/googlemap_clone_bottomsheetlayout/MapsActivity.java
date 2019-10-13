@@ -1,6 +1,7 @@
 package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -8,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +17,7 @@ import android.support.design.widget.BottomSheetBehavior;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -65,6 +68,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener,
         GoogleMap.OnMarkerDragListener,
+//        GoogleMap.OnInfoWindowClickListener,
+        GoogleMap.OnMarkerClickListener,
         GoogleMap.OnMapLongClickListener {
 
 
@@ -98,6 +103,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private AutoCompleteTextView mSearchText;
     private ImageView mGps;
     MarkerOptions place1, place2, place3, place4, place5;
+    Marker Place1, Place2, Place3, Place4, Place5;
+
 
     //vars
     private Boolean mLocationPermissionsGranted = false;
@@ -378,11 +385,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.addMarker(place1);
-        mMap.addMarker(place2);
-        mMap.addMarker(place3);
-        mMap.addMarker(place4);
-        mMap.addMarker(place5);
+        mMap.setOnMarkerClickListener(this);
+        Place1 = mMap.addMarker(place1);
+        Place2 =mMap.addMarker(place2);
+        Place3 =mMap.addMarker(place3);
+        Place4 =mMap.addMarker(place4);
+        Place5 =mMap.addMarker(place5);
 
 
         // Add a marker in Sydney and move the camera
@@ -564,6 +572,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             //moving the map to location
             moveMap();
         }
+
+
     }
 
     //Function to move the map
@@ -709,6 +719,47 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+        Boolean y = true;
+        String m =marker.getTitle();
+        if (m.contains("Taxi Rank")) {
+            //handle click here
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Do you want to got to " + m + "?")
+                    .setCancelable(true)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+
+                            String longitude = String.valueOf(marker.getPosition().longitude);
+                            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + latitude + "," + longitude);
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                            mapIntent.setPackage("com.google.android.apps.maps");
+
+                            try {
+                                if (mapIntent.resolveActivity(MapsActivity.this.getPackageManager()) != null) {
+                                    startActivity(mapIntent);
+                                }
+                            } catch (NullPointerException e) {
+                                Log.e(TAG, "onClick: NullPointerException: Couldn't open map." + e.getMessage());
+                                Toast.makeText(MapsActivity.this, "Couldn't open map", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                            dialog.cancel();
+                        }
+                    });
+            final AlertDialog alert = builder.create();
+            alert.show();
+
+            y = false;
+        }
+        return y;
+    }
 
 
 }
