@@ -36,7 +36,7 @@ public class RoutesTest {
     Activity secondActivity =getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
 
     assertNotNull(secondActivity);
-
+     secondActivity.finish();
 
  }
  @After
