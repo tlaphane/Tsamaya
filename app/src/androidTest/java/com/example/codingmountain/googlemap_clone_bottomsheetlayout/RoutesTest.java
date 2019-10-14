@@ -23,7 +23,7 @@ public class RoutesTest {
     public ActivityTestRule<Routes>  RoutesTestRule= new ActivityTestRule<Routes>(Routes.class);
     private Routes RoutesTest =null;
 
-    //Instrumentation.ActivityMonitor monitor= getInstrumentation()
+    Instrumentation.ActivityMonitor monitor= getInstrumentation().addMonitor(Routes.class.getName(),null,false);
 
  @Before
  public void setUp() throws Exception {
@@ -33,6 +33,9 @@ public class RoutesTest {
  public void testLaunchofSecondActivityOnButtonClick(){
     assertNotNull(RoutesTest.findViewById(R.id.button));
     onView(withId(R.id.button)).perform(click());
+    Activity secondActivity =getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+
+    assertNotNull(secondActivity);
 
 
  }
