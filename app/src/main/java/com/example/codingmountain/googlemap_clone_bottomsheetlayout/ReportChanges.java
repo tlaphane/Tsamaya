@@ -92,9 +92,6 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             ((ViewGroup) withinHour.getParent()).removeView(withinHour);
             ((ViewGroup) overHour.getParent()).removeView(overHour);
 
-//            ((ViewGroup) taxiPresent.getParent()).removeView(taxiPresent);
-//            ((ViewGroup) taxiAbsent.getParent()).removeView(taxiAbsent);
-
             Toast.makeText(getApplicationContext(),"less than 30",Toast.LENGTH_SHORT).show();
         }
 
