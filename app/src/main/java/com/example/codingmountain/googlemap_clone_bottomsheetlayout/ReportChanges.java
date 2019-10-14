@@ -18,7 +18,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
 
     RatingBar ratingBar;
     LinearLayout master;
-    //Button button;
+
     //clicikable textviews
     TextView belowThirty;
     TextView withinHour;
@@ -71,7 +71,6 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         priceNotchanged.setOnClickListener(this);
 
         /*ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-       //button =(Button) findViewById(R.id.reports);
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -79,13 +78,6 @@ public class ReportChanges extends Activity implements View.OnClickListener {
                 Toast.makeText(ReportChanges.this,"Stars"+rating,Toast.LENGTH_SHORT).show();
             }
         });*/
-
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(ReportChanges.this,"Stars", Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 
 
