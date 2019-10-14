@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ReportChanges"
+    android:id="@+id/master"
+    android:orientation="vertical">
+
+    <!--<RatingBar-->
+    <!--android:id="@+id/ratingBar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:numStars="5"-->
+    <!--android:rating="0.0"-->
+    <!--android:stepSize="1.0"-->
+    <!--android:layout_below="@id/text_view_prices"/>-->
+
+    <TextView
+        android:id="@+id/waitingtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How long did you have to wait?"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:background="@drawable/borders"
+                android:id="@+id/belowThirty"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:text="less than 30 min"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" />
+
+
+            <TextView
+                android:background="@drawable/borders"
+                android:id="@+id/withinHour"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:text="30 min - 1 hour"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" />
+
+            <TextView
+                android:background="@drawable/borders"
+                android:id="@+id/overHour"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:text="+ 1 hour"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/waitTaxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Was the taxi available?"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="25dp"
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:textAlignment="center"
+                android:background="@drawable/borders"
+                android:id="@+id/taxiPresent"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="Yes"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent" />
+
+
+            <TextView
+                android:textAlignment="center"
+                android:background="@drawable/borders"
+                android:id="@+id/taxiAbsent"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:text="No"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent" />
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Was the taxi fee accurate?"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
+    <android.support.v7.widget.CardView
+        android:layout_margin="25dp"
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:textAlignment="center"
+                android:background="@drawable/borders"
+                android:id="@+id/priceNotchanged"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="Yes"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent" />
+
+
+            <TextView
+                android:textAlignment="center"
+                android:background="@drawable/borders"
+                android:id="@+id/priceChanged"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:text="No"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent" />
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
