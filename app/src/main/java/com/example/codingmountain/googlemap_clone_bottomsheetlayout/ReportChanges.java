@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 
 public class ReportChanges extends Activity implements View.OnClickListener {
 
-    RatingBar ratingBar;
+    //RatingBar ratingBar;
     LinearLayout master;
 
     //clicikable textviews
