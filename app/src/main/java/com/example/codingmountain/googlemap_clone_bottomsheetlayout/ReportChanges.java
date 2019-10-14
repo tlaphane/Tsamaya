@@ -146,7 +146,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             ((ViewGroup) priceChanged.getParent()).removeView(priceChanged);
             ((ViewGroup) priceNotchanged.getParent()).removeView(priceNotchanged);
 
-            Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"No",Toast.LENGTH_SHORT).show();
 
         }
         else if(view.equals(priceNotchanged)){
@@ -154,7 +154,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             ((ViewGroup) priceChanged.getParent()).removeView(priceChanged);
             ((ViewGroup) priceNotchanged.getParent()).removeView(priceNotchanged);
 
-            Toast.makeText(getApplicationContext(),"No",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
 
         }
     }
