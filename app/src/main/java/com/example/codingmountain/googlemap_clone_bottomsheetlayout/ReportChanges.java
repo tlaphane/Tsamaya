@@ -124,22 +124,22 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(),"Over an hour",Toast.LENGTH_SHORT).show();
         }
         //taxi reliability
-//        else if(view.equals(taxiPresent)){
-//            ((ViewGroup)waitTaxi.getParent()).removeView(waitTaxi);
-//            ((ViewGroup) taxiPresent.getParent()).removeView(taxiPresent);
-//            ((ViewGroup) taxiAbsent.getParent()).removeView(taxiAbsent);
-//
-//            Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
-//
-//        }
-//        else if(view.equals(taxiAbsent)){
-//            ((ViewGroup)waitTaxi.getParent()).removeView(waitTaxi);
-//            ((ViewGroup) taxiPresent.getParent()).removeView(taxiPresent);
-//            ((ViewGroup) taxiAbsent.getParent()).removeView(taxiAbsent);
-//
-//            Toast.makeText(getApplicationContext(),"No",Toast.LENGTH_SHORT).show();
-//
-//        }
+        else if(view.equals(taxiPresent)){
+            ((ViewGroup)waitTaxi.getParent()).removeView(waitTaxi);
+            ((ViewGroup) taxiPresent.getParent()).removeView(taxiPresent);
+            ((ViewGroup) taxiAbsent.getParent()).removeView(taxiAbsent);
+
+            Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
+
+        }
+        else if(view.equals(taxiAbsent)){
+            ((ViewGroup)waitTaxi.getParent()).removeView(waitTaxi);
+            ((ViewGroup) taxiPresent.getParent()).removeView(taxiPresent);
+            ((ViewGroup) taxiAbsent.getParent()).removeView(taxiAbsent);
+
+            Toast.makeText(getApplicationContext(),"No",Toast.LENGTH_SHORT).show();
+
+        }
         //taxi fees
 //        else if(view.equals(priceChanged)){
 //            ((ViewGroup)price.getParent()).removeView(price);
