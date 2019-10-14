@@ -122,6 +122,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private FloatingActionButton btnRanks;
     private FloatingActionButton btnReports;
     private FloatingActionButton btnLogout;
+    private FloatingActionButton Reports;
 
     public Firebase mRef;
     public ArrayList<String> Destinations = new ArrayList<>();
@@ -267,6 +268,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
 
+        FloatingActionButton fab4 = findViewById(R.id.fab_action4);
+        fab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ReportChanges.class);
+                startActivity(intent);
+            }
+        });
+
         FloatingActionButton fab3 = findViewById(R.id.fab_action3);
         fab3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,6 +286,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
+
 
 
 
@@ -426,7 +437,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         isFABOpen=true;
         btnRanks.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         btnReports.animate().translationY(-getResources().getDimension(R.dimen.standard_70));
-        btnLogout.animate().translationY(-getResources().getDimension(R.dimen.standard_90));
+        Reports.animate().translationY(-getResources().getDimension(R.dimen.standard_90));
     }
 
     private void closeMenu(){
@@ -434,6 +445,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnRanks.animate().translationY(0);
         btnReports.animate().translationY(0);
         btnLogout.animate().translationY(0);
+        Reports.animate().translationY(0);
     }
 
 

@@ -6,11 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.example.codingmountain.googlemap_clone_bottomsheetlayout.Routes">
 
+    <!--<Button-->
+        <!--android:id="@+id/reports"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Reports"-->
+        <!--tools:layout_editor_absoluteX="323dp"-->
+        <!--tools:layout_editor_absoluteY="-56dp"-->
+        <!--tools:ignore="MissingConstraints" />-->
+
+
     <ListView
         android:id="@+id/listRoutes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="342dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="48dp" />
 </android.support.constraint.ConstraintLayout>
 

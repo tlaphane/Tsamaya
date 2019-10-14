@@ -3,7 +3,10 @@ package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.firebase.client.ChildEventListener;
@@ -19,12 +22,24 @@ public class Routes extends AppCompatActivity {
     public ArrayList<String> mRoutes = new ArrayList<>();
     public ListView mListView;
 
+    private Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routes);
 
         Intent intent = getIntent();
+
+//        button = (Button) findViewById(R.id.reports);
+//
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Routes.this, ReportChanges.class);
+//                startActivity(intent);
+//            }
+//        });
 
         String TaxiRank = intent.getStringExtra("Rank_name");
         String url = "https://tsamaya-42805.firebaseio.com/Ranks/"+TaxiRank;
@@ -64,6 +79,17 @@ public class Routes extends AppCompatActivity {
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 
+            }
+        });
+
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), ReportChanges.class);
+                intent.putExtra("Rank_name",mRoutes.get(i));
+                startActivity(intent);
             }
         });
 

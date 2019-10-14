@@ -248,6 +248,15 @@
                  app:fab_title="Rate"/>
 
 
+             <com.getbase.floatingactionbutton.FloatingActionButton
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 app:fab_colorNormal="@color/white"
+                 app:fab_colorPressed="@color/colorPrimaryDark"
+                 app:fab_icon="@drawable/minivan"
+                 app:fab_size="mini"
+                 android:id="@+id/fab_action4"
+                 app:fab_title="Reports"/>
 
              </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
