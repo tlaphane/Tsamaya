@@ -141,21 +141,21 @@ public class ReportChanges extends Activity implements View.OnClickListener {
 
         }
         //taxi fees
-//        else if(view.equals(priceChanged)){
-//            ((ViewGroup)price.getParent()).removeView(price);
-//            ((ViewGroup) priceChanged.getParent()).removeView(priceChanged);
-//            ((ViewGroup) priceNotchanged.getParent()).removeView(priceNotchanged);
-//
-//            Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
-//
-//        }
-//        else if(view.equals(priceNotchanged)){
-//            ((ViewGroup)price.getParent()).removeView(price);
-//            ((ViewGroup) priceChanged.getParent()).removeView(priceChanged);
-//            ((ViewGroup) priceNotchanged.getParent()).removeView(priceNotchanged);
-//
-//            Toast.makeText(getApplicationContext(),"No",Toast.LENGTH_SHORT).show();
-//
-//        }
+        else if(view.equals(priceChanged)){
+            ((ViewGroup)price.getParent()).removeView(price);
+            ((ViewGroup) priceChanged.getParent()).removeView(priceChanged);
+            ((ViewGroup) priceNotchanged.getParent()).removeView(priceNotchanged);
+
+            Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
+
+        }
+        else if(view.equals(priceNotchanged)){
+            ((ViewGroup)price.getParent()).removeView(price);
+            ((ViewGroup) priceChanged.getParent()).removeView(priceChanged);
+            ((ViewGroup) priceNotchanged.getParent()).removeView(priceNotchanged);
+
+            Toast.makeText(getApplicationContext(),"No",Toast.LENGTH_SHORT).show();
+
+        }
     }
 }
