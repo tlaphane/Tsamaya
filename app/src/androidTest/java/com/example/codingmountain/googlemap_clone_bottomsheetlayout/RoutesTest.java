@@ -19,29 +19,29 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
 public class RoutesTest {
- @Rule
-    public ActivityTestRule<Routes>  RoutesTestRule= new ActivityTestRule<Routes>(Routes.class);
-    private Routes RoutesTest =null;
-
-    Instrumentation.ActivityMonitor monitor= getInstrumentation().addMonitor(Routes.class.getName(),null,false);
-
- @Before
- public void setUp() throws Exception {
-     RoutesTest = RoutesTestRule.getActivity();
-    }
- @Test
- public void testLaunchofSecondActivityOnButtonClick(){
-    assertNotNull(RoutesTest.findViewById(R.id.button));
-    onView(withId(R.id.button)).perform(click());
-    Activity secondActivity =getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
-
-    assertNotNull(secondActivity);
-     secondActivity.finish();
-
- }
- @After
-public void tearDown() throws Exception{
-     RoutesTest=null;
- }
+// @Rule
+//    public ActivityTestRule<Routes>  RoutesTestRule= new ActivityTestRule<Routes>(Routes.class);
+//    private Routes RoutesTest =null;
+//
+//    Instrumentation.ActivityMonitor monitor= getInstrumentation().addMonitor(Routes.class.getName(),null,false);
+//
+// @Before
+// public void setUp() throws Exception {
+//     RoutesTest = RoutesTestRule.getActivity();
+//    }
+// @Test
+// public void testLaunchofSecondActivityOnButtonClick(){
+//    assertNotNull(RoutesTest.findViewById(R.id.button));
+//    onView(withId(R.id.button)).perform(click());
+//    Activity secondActivity =getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+//
+//    assertNotNull(secondActivity);
+//     secondActivity.finish();
+//
+// }
+// @After
+//public void tearDown() throws Exception{
+//     RoutesTest=null;
+// }
 
 }

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.uiautomator.UiDevice;
@@ -33,6 +34,7 @@ import static android.support.test.espresso.action.ViewActions.swipeDown;
 import static android.support.test.espresso.action.ViewActions.swipeRight;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
 public class MapsActivityTest {
@@ -164,6 +166,136 @@ public class MapsActivityTest {
 
         MapActivity.finish();
 
+    }
+
+    @Test
+    public void SearchBarYesToGoogle() throws InterruptedException {
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        assertNotNull(loginActivity.findViewById(R.id.input_email));
+        assertNotNull(loginActivity.findViewById(R.id.input_password));
+
+        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.input_password)).perform(typeText("123456"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+
+        Activity MapActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
+
+
+        if(checkPermission()){
+            System.out.println("Alec has permission");
+        }else{
+            System.out.println("Alec no permision");
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    //sleep(PERMISSIONS_DIALOG_DELAY);
+                    UiDevice device = UiDevice.getInstance(getInstrumentation());
+                    UiObject allowPermissions = device.findObject(new UiSelector()
+                            .clickable(true)
+                            .checkable(false)
+                            .index(0));
+                    if (allowPermissions.exists()) {
+                        allowPermissions.click();
+                    }
+                }
+            } catch (UiObjectNotFoundException e) {
+                System.out.println("There is no permissions dialog to interact with");
+            }
+        }
+        TimeUnit.SECONDS.sleep(2);
+        assertNotNull(MapActivity.findViewById(R.id.map));
+
+        assertNotNull(MapActivity.findViewById(R.id.input_search));
+        onView(withId(R.id.input_search)).perform(typeText("katle"));
+
+        TimeUnit.SECONDS.sleep(2);
+
+        onView(withText("Katlehong - R18.00 - Bree Taxi Rank")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
+        TimeUnit.SECONDS.sleep(2);
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                //sleep(PERMISSIONS_DIALOG_DELAY);
+                UiDevice device = UiDevice.getInstance(getInstrumentation());
+                UiObject allowPermissions = device.findObject(new UiSelector()
+                        .clickable(true)
+                        .checkable(false)
+                        .index(1));
+                if (allowPermissions.exists()) {
+                    allowPermissions.click();
+                }
+            }
+        } catch (UiObjectNotFoundException e) {
+            System.out.println("There is no permissions dialog to interact with");
+        }
+
+        TimeUnit.SECONDS.sleep(5);
+
+        MapActivity.finish();
+    }
+
+    @Test
+    public void SearchBarNoToGoogle() throws InterruptedException {
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        assertNotNull(loginActivity.findViewById(R.id.input_email));
+        assertNotNull(loginActivity.findViewById(R.id.input_password));
+
+        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.input_password)).perform(typeText("123456"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+
+        Activity MapActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
+
+
+        if(checkPermission()){
+            System.out.println("Alec has permission");
+        }else{
+            System.out.println("Alec no permision");
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    //sleep(PERMISSIONS_DIALOG_DELAY);
+                    UiDevice device = UiDevice.getInstance(getInstrumentation());
+                    UiObject allowPermissions = device.findObject(new UiSelector()
+                            .clickable(true)
+                            .checkable(false)
+                            .index(0));
+                    if (allowPermissions.exists()) {
+                        allowPermissions.click();
+                    }
+                }
+            } catch (UiObjectNotFoundException e) {
+                System.out.println("There is no permissions dialog to interact with");
+            }
+        }
+        TimeUnit.SECONDS.sleep(2);
+        assertNotNull(MapActivity.findViewById(R.id.map));
+
+        assertNotNull(MapActivity.findViewById(R.id.input_search));
+        onView(withId(R.id.input_search)).perform(typeText("katle"));
+
+        TimeUnit.SECONDS.sleep(2);
+
+        onView(withText("Katlehong - R18.00 - Bree Taxi Rank")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
+        TimeUnit.SECONDS.sleep(2);
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                //sleep(PERMISSIONS_DIALOG_DELAY);
+                UiDevice device = UiDevice.getInstance(getInstrumentation());
+                UiObject allowPermissions = device.findObject(new UiSelector()
+                        .clickable(true)
+                        .checkable(false)
+                        .index(0));
+                if (allowPermissions.exists()) {
+                    allowPermissions.click();
+                }
+            }
+        } catch (UiObjectNotFoundException e) {
+            System.out.println("There is no permissions dialog to interact with");
+        }
+
+        TimeUnit.SECONDS.sleep(5);
+
+        MapActivity.finish();
     }
 
     public boolean checkPermission() {

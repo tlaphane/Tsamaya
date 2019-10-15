@@ -117,7 +117,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-    private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     private boolean isFABOpen;
     private FloatingActionButton btnRanks;
     private FloatingActionButton btnReports;
@@ -220,8 +219,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
         //mGps = (ImageView) findViewById(R.id.ic_gps);
 
-//        mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient,
-//                LAT_LNG_BOUNDS, null);
+
 
         place1 = new MarkerOptions().position(new LatLng(-26.2599, 27.9424)).title("Bara Taxi Rank");
         place2 = new MarkerOptions().position(new LatLng(-26.2014, 28.0375)).title("Bree Taxi Rank");
@@ -378,14 +376,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        Traffic = findViewById(R.id.traffic);
 //        Traffic.setOnClickListener(new View.OnClickListener() {
 //
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MapsActivityFind.class);
-//                startActivity(intent);
-//
-//
-//            }
-//        });
+
 
 //        tapactionlayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -432,23 +423,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
     }
-
-    private void showMenu(){
-        isFABOpen=true;
-        btnRanks.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-        btnReports.animate().translationY(-getResources().getDimension(R.dimen.standard_70));
-        Reports.animate().translationY(-getResources().getDimension(R.dimen.standard_90));
-    }
-
-    private void closeMenu(){
-        isFABOpen=false;
-        btnRanks.animate().translationY(0);
-        btnReports.animate().translationY(0);
-        btnLogout.animate().translationY(0);
-        Reports.animate().translationY(0);
-    }
-
-
 
     // The callback for the management of the user settings regarding location
     private ResultCallback<LocationSettingsResult> mResultCallbackFromSettings = new ResultCallback<LocationSettingsResult>() {
@@ -730,26 +704,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return true;
     }
 
-    public void searchLocation(View view) {
-        EditText locationSearch = (EditText) findViewById(R.id.input_search);
-        String location = locationSearch.getText().toString();
-        List<Address> addressList = null;
-
-        if (location != null || !location.equals("")) {
-            Geocoder geocoder = new Geocoder(this);
-            try {
-                addressList = geocoder.getFromLocationName(location, 1);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Address address = addressList.get(0);
-            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-            Toast.makeText(getApplicationContext(),address.getLatitude()+" "+address.getLongitude(),Toast.LENGTH_LONG).show();
-        }
-    }
 
 
     private void init(){
@@ -762,10 +716,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //                .enableAutoManage(this, this)
 //                .build();
 
-//        mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient,
-//                LAT_LNG_BOUNDS, null);
 //
-//        mSearchText.setAdapter(mPlaceAutocompleteAdapter);
 
 //        mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
@@ -792,29 +743,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        });
 
         hideSoftKeyboard();
-    }
-
-    private void geoLocate(){
-        Log.d(TAG, "geoLocate: geolocating");
-
-        String searchString = mSearchText.getText().toString();
-
-        Geocoder geocoder = new Geocoder(MapsActivity.this);
-        List<Address> list = new ArrayList<>();
-        try{
-            list = geocoder.getFromLocationName(searchString, 1);
-        }catch (IOException e){
-            Log.e(TAG, "geoLocate: IOException: " + e.getMessage() );
-        }
-
-        if(list.size() > 0){
-            Address address = list.get(0);
-
-            Log.d(TAG, "geoLocate: found a location: " + address.toString());
-            Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
-
-//            moveCamera(new LatLng(address.getLatitude(), address.getLongitude()), DEFAULT_ZOOM, address.getAddressLine(0));
-        }
     }
 
     private void hideSoftKeyboard(){

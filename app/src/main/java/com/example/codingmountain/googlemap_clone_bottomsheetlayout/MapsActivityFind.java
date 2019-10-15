@@ -73,33 +73,33 @@ public class MapsActivityFind extends AppCompatActivity implements OnMapReadyCal
     View bottomSheet;
     ImageView Traffic;
 
-    public void TrafficUpdate(View view){
-        bottomSheet = findViewById(R.id.bottom_sheet_traffic);
-        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
-        mBottomSheetBehavior1.setPeekHeight(120);
-        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    tapactionlayout.setVisibility(View.VISIBLE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
-    }
+//    public void TrafficUpdate(View view){
+//        bottomSheet = findViewById(R.id.bottom_sheet_traffic);
+//        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
+//        mBottomSheetBehavior1.setPeekHeight(120);
+//        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+//                    tapactionlayout.setVisibility(View.VISIBLE);
+//                }
+//
+//                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+//                    tapactionlayout.setVisibility(View.GONE);
+//                }
+//
+//                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+//                    tapactionlayout.setVisibility(View.GONE);
+//                }
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//
+//            }
+//        });
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,115 +112,115 @@ public class MapsActivityFind extends AppCompatActivity implements OnMapReadyCal
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         tapactionlayout = (LinearLayout) findViewById(R.id.tap_action_layout);
         bottomSheet = findViewById(R.id.bottom_sheet_findnearest);
-        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
-        mBottomSheetBehavior1.setPeekHeight(120);
-        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    tapactionlayout.setVisibility(View.VISIBLE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-
-                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-                    tapactionlayout.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
-
-        // ButterKnife.bind(this);
-        Traffic = findViewById(R.id.traffic);
-        Traffic.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
-        tapactionlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mBottomSheetBehavior1.getState()==BottomSheetBehavior.STATE_COLLAPSED)
-                {
-                    mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
-            }
-        });
-
-        // Find the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        getSupportActionBar().setTitle("Search here");
-
-
-        mapFragment.getMapAsync(this);
-        //Initializing googleapi client
-        googleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-
-        mLocationRequest = new LocationRequest();
-//        mLocationRequest.setNumUpdates(1);
-//        mLocationRequest.setExpirationTime(6000);
-        mLocationRequest.setInterval(INTERVAL);
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getCurrentLocation();
-            }
-        });
+//        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
+//        mBottomSheetBehavior1.setPeekHeight(120);
+//        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+//                    tapactionlayout.setVisibility(View.VISIBLE);
+//                }
+//
+//                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+//                    tapactionlayout.setVisibility(View.GONE);
+//                }
+//
+//                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+//                    tapactionlayout.setVisibility(View.GONE);
+//                }
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//
+//            }
+//        });
+//
+//        // ButterKnife.bind(this);
+//        Traffic = findViewById(R.id.traffic);
+//        Traffic.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//            }
+//        });
+//
+//        tapactionlayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(mBottomSheetBehavior1.getState()==BottomSheetBehavior.STATE_COLLAPSED)
+//                {
+//                    mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_EXPANDED);
+//                }
+//            }
+//        });
+//
+//        // Find the toolbar view inside the activity layout
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        // Sets the Toolbar to act as the ActionBar for this Activity window.
+//        // Make sure the toolbar exists in the activity and is not null
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+//        getSupportActionBar().setTitle("Search here");
+//
+//
+//        mapFragment.getMapAsync(this);
+//        //Initializing googleapi client
+//        googleApiClient = new GoogleApiClient.Builder(this)
+//                .addConnectionCallbacks(this)
+//                .addOnConnectionFailedListener(this)
+//                .addApi(LocationServices.API)
+//                .build();
+//
+//        mLocationRequest = new LocationRequest();
+////        mLocationRequest.setNumUpdates(1);
+////        mLocationRequest.setExpirationTime(6000);
+//        mLocationRequest.setInterval(INTERVAL);
+//        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+//        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+//
+//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getCurrentLocation();
+//            }
+//        });
 
     }
 
-    // The callback for the management of the user settings regarding location
-    private ResultCallback<LocationSettingsResult> mResultCallbackFromSettings = new ResultCallback<LocationSettingsResult>() {
-        @Override
-        public void onResult(LocationSettingsResult result) {
-            final Status status = result.getStatus();
-            //final LocationSettingsStates locationSettingsStates = result.getLocationSettingsStates();
-            switch (status.getStatusCode()) {
-                case LocationSettingsStatusCodes.SUCCESS:
-                    // All location settings are satisfied. The client can initialize location
-                    // requests here.
-                    break;
-                case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                    // Location settings are not satisfied. But could be fixed by showing the user
-                    // a dialog.
-                    try {
-                        // Show the dialog by calling startResolutionForResult(),
-                        // and check the result in onActivityResult().
-                        status.startResolutionForResult(
-                                MapsActivityFind.this,
-                                REQUEST_CHECK_SETTINGS);
-                    } catch (IntentSender.SendIntentException e) {
-                        // Ignore the error.
-                    }
-                    break;
-                case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                    Log.e(TAG, "Settings change unavailable. We have no way to fix the settings so we won't show the dialog.");
-                    break;
-            }
-        }
-    };
+//    // The callback for the management of the user settings regarding location
+//    private ResultCallback<LocationSettingsResult> mResultCallbackFromSettings = new ResultCallback<LocationSettingsResult>() {
+//        @Override
+//        public void onResult(LocationSettingsResult result) {
+//            final Status status = result.getStatus();
+//            //final LocationSettingsStates locationSettingsStates = result.getLocationSettingsStates();
+//            switch (status.getStatusCode()) {
+//                case LocationSettingsStatusCodes.SUCCESS:
+//                    // All location settings are satisfied. The client can initialize location
+//                    // requests here.
+//                    break;
+//                case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+//                    // Location settings are not satisfied. But could be fixed by showing the user
+//                    // a dialog.
+//                    try {
+//                        // Show the dialog by calling startResolutionForResult(),
+//                        // and check the result in onActivityResult().
+//                        status.startResolutionForResult(
+//                                MapsActivityFind.this,
+//                                REQUEST_CHECK_SETTINGS);
+//                    } catch (IntentSender.SendIntentException e) {
+//                        // Ignore the error.
+//                    }
+//                    break;
+//                case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+//                    Log.e(TAG, "Settings change unavailable. We have no way to fix the settings so we won't show the dialog.");
+//                    break;
+//            }
+//        }
+//    };
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -235,74 +235,74 @@ public class MapsActivityFind extends AppCompatActivity implements OnMapReadyCal
         //Adding a long click listener to the map
         mMap.setOnMapLongClickListener(this);
 
-        if (checkPermission()) {
-            buildGoogleApiClient();
-            // Check the location settings of the user and create the callback to react to the different possibilities
-            LocationSettingsRequest.Builder locationSettingsRequestBuilder = new LocationSettingsRequest.Builder()
-                    .addLocationRequest(mLocationRequest);
-            PendingResult<LocationSettingsResult> result =
-                    LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, locationSettingsRequestBuilder.build());
-            result.setResultCallback(mResultCallbackFromSettings);
-        } else {
-            requestPermission();
-        }
+//        if (checkPermission()) {
+//            buildGoogleApiClient();
+//            // Check the location settings of the user and create the callback to react to the different possibilities
+//            LocationSettingsRequest.Builder locationSettingsRequestBuilder = new LocationSettingsRequest.Builder()
+//                    .addLocationRequest(mLocationRequest);
+//            PendingResult<LocationSettingsResult> result =
+//                    LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, locationSettingsRequestBuilder.build());
+//            result.setResultCallback(mResultCallbackFromSettings);
+//        } else {
+//            requestPermission();
+//        }
     }
 
 
-    private void requestPermission() {
+//    private void requestPermission() {
+//
+//        ActivityCompat.requestPermissions(MapsActivityFind.this, new String[]
+//                {
+//                        Manifest.permission.ACCESS_FINE_LOCATION,
+//                        Manifest.permission.ACCESS_COARSE_LOCATION
+//                }, RequestPermissionCode);
+//
+//    }
+//
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//
+//            case RequestPermissionCode:
+//
+//                if (grantResults.length > 0) {
+//
+//                    boolean finelocation = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+//                    boolean coarselocation = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+//
+//                    if (finelocation && coarselocation) {
+//
+//                        if (checkPermission())
+//                            buildGoogleApiClient();
+//                        Toast.makeText(MapsActivityFind.this, "Permission Granted", Toast.LENGTH_LONG).show();
+//                    } else {
+//                        Toast.makeText(MapsActivityFind.this, "Permission Denied", Toast.LENGTH_LONG).show();
+//
+//                    }
+//                }
+//
+//                break;
+//        }
+//    }
 
-        ActivityCompat.requestPermissions(MapsActivityFind.this, new String[]
-                {
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                }, RequestPermissionCode);
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-
-            case RequestPermissionCode:
-
-                if (grantResults.length > 0) {
-
-                    boolean finelocation = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    boolean coarselocation = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-
-                    if (finelocation && coarselocation) {
-
-                        if (checkPermission())
-                            buildGoogleApiClient();
-                        Toast.makeText(MapsActivityFind.this, "Permission Granted", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(MapsActivityFind.this, "Permission Denied", Toast.LENGTH_LONG).show();
-
-                    }
-                }
-
-                break;
-        }
-    }
-
-    public boolean checkPermission() {
-
-        int FirstPermissionResult = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION);
-        int SecondPermissionResult = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION);
-
-        return FirstPermissionResult == PackageManager.PERMISSION_GRANTED &&
-                SecondPermissionResult == PackageManager.PERMISSION_GRANTED;
-
-    }
-
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        mGoogleApiClient.connect();
-    }
+//    public boolean checkPermission() {
+//
+//        int FirstPermissionResult = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION);
+//        int SecondPermissionResult = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION);
+//
+//        return FirstPermissionResult == PackageManager.PERMISSION_GRANTED &&
+//                SecondPermissionResult == PackageManager.PERMISSION_GRANTED;
+//
+//    }
+//
+//    protected synchronized void buildGoogleApiClient() {
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .addConnectionCallbacks(this)
+//                .addOnConnectionFailedListener(this)
+//                .addApi(LocationServices.API)
+//                .build();
+//        mGoogleApiClient.connect();
+//    }
 
 
     @Override
@@ -329,7 +329,7 @@ public class MapsActivityFind extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
-        getCurrentLocation();
+//        getCurrentLocation();
     }
 
     @Override
@@ -384,57 +384,57 @@ public class MapsActivityFind extends AppCompatActivity implements OnMapReadyCal
         longitude = marker.getPosition().longitude;
 
         //Moving the map
-        moveMap();
+//        moveMap();
 
     }
+//
+//    //Getting current location
+//    private void getCurrentLocation() {
+//        Location location = null;
+//        if (checkPermission()) {
+//            location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+//        }
+//
+//        if (location != null) {
+//            //Getting longitude and latitude
+//            longitude = location.getLongitude();
+//            latitude = location.getLatitude();
+//
+//            //moving the map to location
+//            moveMap();
+//        }
+//    }
 
-    //Getting current location
-    private void getCurrentLocation() {
-        Location location = null;
-        if (checkPermission()) {
-            location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-        }
-
-        if (location != null) {
-            //Getting longitude and latitude
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-
-            //moving the map to location
-            moveMap();
-        }
-    }
-
-    //Function to move the map
-    private void moveMap() {
-        //String to display current latitude and longitude
-        String msg = latitude + ", " + longitude;
-
-        //Creating a LatLng Object to store Coordinates
-        LatLng latLng = new LatLng(latitude, longitude);
-
-        //Adding marker to map
-        mMap.addMarker(new MarkerOptions()
-                .position(latLng) //setting position
-                .draggable(true) //Making the marker draggable
-                .title("Current Location")); //Adding a title
-
-        //Moving the camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-
-        //Animating the camera
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-
-        //Displaying current coordinates in toast
-        //  Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//    //Function to move the map
+//    private void moveMap() {
+//        //String to display current latitude and longitude
+//        String msg = latitude + ", " + longitude;
+//
+//        //Creating a LatLng Object to store Coordinates
+//        LatLng latLng = new LatLng(latitude, longitude);
+//
+//        //Adding marker to map
+//        mMap.addMarker(new MarkerOptions()
+//                .position(latLng) //setting position
+//                .draggable(true) //Making the marker draggable
+//                .title("Current Location")); //Adding a title
+//
+//        //Moving the camera
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//
+//        //Animating the camera
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+//
+//        //Displaying current coordinates in toast
+//        //  Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+//    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
 }

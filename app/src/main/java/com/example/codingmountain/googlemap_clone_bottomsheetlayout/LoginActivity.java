@@ -163,11 +163,6 @@ public class LoginActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
-    public void onLoginSuccess() {
-        _loginButton.setEnabled(true);
-        finish();
-    }
-
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Incorrect Password or Email", Toast.LENGTH_LONG).show();
 
