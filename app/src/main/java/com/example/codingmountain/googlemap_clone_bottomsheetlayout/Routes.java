@@ -22,7 +22,7 @@ public class Routes extends AppCompatActivity {
     public ArrayList<String> mRoutes = new ArrayList<>();
     public ListView mListView;
 
-    private Button button;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +31,20 @@ public class Routes extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-//        button = (Button) findViewById(R.id.reports);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Routes.this, ReportChanges.class);
-//                startActivity(intent);
-//            }
-//        });
+        getSupportActionBar().setTitle("activity_routes");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        back = (Button) findViewById(R.id.back);
+
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Routes.this, ReportChanges.class);
+                startActivity(intent);
+            }
+        });
 
         String TaxiRank = intent.getStringExtra("Rank_name");
         String url = "https://tsamaya-42805.firebaseio.com/Ranks/"+TaxiRank;

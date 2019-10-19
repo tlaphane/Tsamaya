@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,11 +23,25 @@ public class Ranks extends AppCompatActivity {
     public Firebase mRef;
     public ArrayList<String> mUsernames = new ArrayList<>();
     public ListView mListView;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranks);
+
+        getSupportActionBar().setTitle("activity_routes");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        back = (Button) findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Ranks.this, MapsActivity.class);
+            }
+        });
+
 
         mRef = new Firebase("https://tsamaya-42805.firebaseio.com/Ranks");
 

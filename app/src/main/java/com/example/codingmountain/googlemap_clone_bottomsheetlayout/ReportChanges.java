@@ -1,5 +1,6 @@
 package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,7 +17,8 @@ import org.w3c.dom.Text;
 
 public class ReportChanges extends Activity implements View.OnClickListener {
 
-    //RatingBar ratingBar;
+    RatingBar ratingBar;
+    TextView rateInfo;
     LinearLayout master;
 
     //clicikable textviews
@@ -34,12 +36,17 @@ public class ReportChanges extends Activity implements View.OnClickListener {
     TextView priceChanged;
     TextView priceNotchanged;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reports);
         master=(LinearLayout)findViewById(R.id.master);
         //map textviews to id
+
+        rateInfo=(TextView)findViewById(R.id.rateInfo);
+        ratingBar= (RatingBar) findViewById(R.id.ratingBar);
+
 
         waitingtime=(TextView)findViewById(R.id.waitingtime);
         waitTaxi=(TextView)findViewById(R.id.waitTaxi);
@@ -56,6 +63,10 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         priceNotchanged=(TextView)findViewById(R.id.priceNotchanged);
 
         //bind onclick listeners
+
+        ratingBar.setOnClickListener(this);
+        rateInfo.setOnClickListener(this);
+
         waitingtime.setOnClickListener(this);
         waitTaxi.setOnClickListener(this);
         price.setOnClickListener(this);
@@ -70,14 +81,14 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         priceChanged.setOnClickListener(this);
         priceNotchanged.setOnClickListener(this);
 
-        /*ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 Toast.makeText(ReportChanges.this,"Stars"+rating,Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
     }
 
 
@@ -145,6 +156,15 @@ public class ReportChanges extends Activity implements View.OnClickListener {
 
             Toast.makeText(getApplicationContext(),"Yes",Toast.LENGTH_SHORT).show();
 
+        }
+
+        //correctness
+
+        else if(view.equals(rateInfo)){
+            ((ViewGroup)rateInfo.getParent()).removeView(rateInfo);
+            ((ViewGroup)ratingBar.getParent()).removeView(ratingBar);
+
+            Toast.makeText(getApplicationContext(),"Info is valid",Toast.LENGTH_SHORT).show();
         }
     }
 }

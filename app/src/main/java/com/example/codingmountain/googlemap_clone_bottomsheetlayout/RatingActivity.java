@@ -1,16 +1,24 @@
 package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.hsalf.smilerating.SmileRating;
 
+
 public class RatingActivity extends Activity {
+
+   // private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ratings);
+
+
 
         SmileRating smileRating = (SmileRating) findViewById(R.id.smile_rating);
         smileRating.setOnSmileySelectionListener(new SmileRating.OnSmileySelectionListener() {

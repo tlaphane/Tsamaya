@@ -7,14 +7,7 @@
     android:id="@+id/master"
     android:orientation="vertical">
 
-    <!--<RatingBar-->
-    <!--android:id="@+id/ratingBar"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:numStars="5"-->
-    <!--android:rating="0.0"-->
-    <!--android:stepSize="1.0"-->
-    <!--android:layout_below="@id/text_view_prices"/>-->
+
 
     <TextView
         android:id="@+id/waitingtime"
@@ -157,5 +150,22 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
+    <TextView
+        android:id="@+id/rateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Is the entire information valid?"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="0.0"
+        android:stepSize="1.0"/>
+       <!-- android:layout_below="@id/text_view_prices"-->
+    />
 
 </LinearLayout>
