@@ -38,12 +38,14 @@ public class Graphs extends AppCompatActivity {
         setContentView(R.layout.graphs);
         barChart =(BarChart) findViewById(R.id.barChart);
 
-        BarDataSet barDataSet1 = new BarDataSet(barEntries1(),"Pick hours");
+        BarDataSet barDataSet1 = new BarDataSet(barEntries1(),"Less than 30mins");
         barDataSet1.setColors(Color.RED);
-        BarDataSet barDataSet2 = new BarDataSet(barEntries2(),"Normal hours");
+        BarDataSet barDataSet2 = new BarDataSet(barEntries2(),"Within an hour");
         barDataSet2.setColors(Color.GREEN);
+        BarDataSet barDataSet3 = new BarDataSet(barEntries3(),"Above an hour");
+        barDataSet3.setColors(Color.MAGENTA);
 
-        BarData data = new BarData(barDataSet1,barDataSet2);
+        BarData data = new BarData(barDataSet1,barDataSet2,barDataSet3);
         barChart.setData(data);
 
         String[] days= new String[]{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
@@ -78,13 +80,13 @@ public class Graphs extends AppCompatActivity {
     private ArrayList<BarEntry>barEntries1(){
         ArrayList<BarEntry>barEntries = new ArrayList<>();
 
-        barEntries.add(new BarEntry(1,2000));
-        barEntries.add(new BarEntry(2,791));
-        barEntries.add(new BarEntry(3,630));
-        barEntries.add(new BarEntry(4,458));
-        barEntries.add(new BarEntry(5,2724));
-        barEntries.add(new BarEntry(6,500));
-        barEntries.add(new BarEntry(7,2173));
+        barEntries.add(new BarEntry(1,20));
+        barEntries.add(new BarEntry(2,15));
+        barEntries.add(new BarEntry(3,20));
+        barEntries.add(new BarEntry(4,8));
+        barEntries.add(new BarEntry(5,4));
+        barEntries.add(new BarEntry(6,10));
+        barEntries.add(new BarEntry(7,3));
 
         return barEntries;
     }
@@ -92,16 +94,28 @@ public class Graphs extends AppCompatActivity {
     private ArrayList<BarEntry>barEntries2(){
         ArrayList<BarEntry>barEntries = new ArrayList<>();
 
-        barEntries.add(new BarEntry(1,900));
-        barEntries.add(new BarEntry(2,791));
-        barEntries.add(new BarEntry(3,1630));
-        barEntries.add(new BarEntry(4,558));
-        barEntries.add(new BarEntry(5,724));
-        barEntries.add(new BarEntry(6,1500));
-        barEntries.add(new BarEntry(7,203));
+        barEntries.add(new BarEntry(1,9));
+        barEntries.add(new BarEntry(2,7));
+        barEntries.add(new BarEntry(3,16));
+        barEntries.add(new BarEntry(4,8));
+        barEntries.add(new BarEntry(5,4));
+        barEntries.add(new BarEntry(6,15));
+        barEntries.add(new BarEntry(7,3));
 
         return barEntries;
     }
 
+    private ArrayList<BarEntry>barEntries3(){
+        ArrayList<BarEntry>barEntries = new ArrayList<>();
 
+        barEntries.add(new BarEntry(1,9));
+        barEntries.add(new BarEntry(2,7));
+        barEntries.add(new BarEntry(3,16));
+        barEntries.add(new BarEntry(4,8));
+        barEntries.add(new BarEntry(5,14));
+        barEntries.add(new BarEntry(6,15));
+        barEntries.add(new BarEntry(7,20));
+
+        return barEntries;
+    }
 }
