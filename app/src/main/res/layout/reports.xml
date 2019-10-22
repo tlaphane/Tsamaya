@@ -165,7 +165,11 @@
         android:numStars="5"
         android:rating="0.0"
         android:stepSize="1.0"/>
-       <!-- android:layout_below="@id/text_view_prices"-->
-    />
+
+    <Button
+        android:id="@+id/chart1"
+        android:text="Graphs"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/standard_55" />
 
 </LinearLayout>

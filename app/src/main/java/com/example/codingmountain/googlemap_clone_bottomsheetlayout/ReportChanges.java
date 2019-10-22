@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 public class ReportChanges extends Activity implements View.OnClickListener {
+
+    private Button graphs;
+
 
     RatingBar ratingBar;
     TextView rateInfo;
@@ -41,6 +45,9 @@ public class ReportChanges extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reports);
+
+        graphs = (Button)findViewById(R.id.chart1);
+
         master=(LinearLayout)findViewById(R.id.master);
         //map textviews to id
 
@@ -63,7 +70,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         priceNotchanged=(TextView)findViewById(R.id.priceNotchanged);
 
         //bind onclick listeners
-
+        graphs.setOnClickListener(this);
         ratingBar.setOnClickListener(this);
         rateInfo.setOnClickListener(this);
 
@@ -89,6 +96,17 @@ public class ReportChanges extends Activity implements View.OnClickListener {
                 Toast.makeText(ReportChanges.this,"Stars"+rating,Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        graphs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReportChanges.this,Graphs.class);
+                startActivity(intent);
+                Toast.makeText(ReportChanges.this,"Statistics",Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
@@ -165,6 +183,13 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             ((ViewGroup)ratingBar.getParent()).removeView(ratingBar);
 
             Toast.makeText(getApplicationContext(),"Info is valid",Toast.LENGTH_SHORT).show();
+        }
+
+        //graphs
+
+        else if( view.equals(graphs)){
+          //  ((ViewGroup)graphs.getParent()).removeView(graphs);
+
         }
     }
 }

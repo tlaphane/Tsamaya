@@ -9,6 +9,9 @@
     <com.anychart.AnyChartView
         android:id="@+id/piechart"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"></com.anychart.AnyChartView>
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints">
+
+    </com.anychart.AnyChartView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

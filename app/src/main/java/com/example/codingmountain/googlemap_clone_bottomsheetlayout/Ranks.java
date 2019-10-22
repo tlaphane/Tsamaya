@@ -30,7 +30,7 @@ public class Ranks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranks);
 
-        getSupportActionBar().setTitle("activity_routes");
+        getSupportActionBar().setTitle("Ranks");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         back = (Button) findViewById(R.id.back);

@@ -31,7 +31,7 @@ public class Routes extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        getSupportActionBar().setTitle("activity_routes");
+        getSupportActionBar().setTitle("Routes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         back = (Button) findViewById(R.id.back);

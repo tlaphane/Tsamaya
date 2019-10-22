@@ -46,7 +46,11 @@
         <activity android:name=".RatingActivity"
             android:label="@string/smile_rating_good"/>
         <activity android:name=".ReportChanges"
-            android:label="reports"/>
+            android:label="reports"
+            android:parentActivityName=".Graphs"/>
+        <activity android:name=".Graphs"
+            android:label="graphs"
+            android:parentActivityName=".ReportChanges"/>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
