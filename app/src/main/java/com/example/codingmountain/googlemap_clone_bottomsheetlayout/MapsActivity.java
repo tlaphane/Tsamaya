@@ -155,17 +155,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 for(DataSnapshot rank : dataSnapshot.getChildren()) {
                     Destinations.add(rank.getKey() + " - " +rank.getValue() + " - " + dataSnapshot.getKey() + " Taxi Rank");
                     System.out.println(rank.getKey() + " - " +rank.getValue() + " - " + dataSnapshot.getKey() + " Taxi Rank                                          its working Tshegofatso");
-//                    if(dataSnapshot.getKey().equals("Bree")){
-//                        mSearchText.setOnClickListener(new View.OnClickListener() {
-//
-//                            @Override
-//                            public void onClick(View v) {
-//                                // TODO Auto-generated method stub
-//                                onMarkerClick(Place1);
-//
-//                            }
-//                        });
-//                    }
+
 
                 }
 
