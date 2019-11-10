@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Spinner;
@@ -64,9 +65,21 @@ public class Graphs extends AppCompatActivity implements GraphsSelectedButton {
         ArrayList<String>test=new ArrayList<>(Arrays.asList(timeSchedule));
 
         Spinner spinner = (Spinner) findViewById(id.times);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, array.times, android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, array.times, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //String travel_type = String.valueOf(adapterView.getItemAtPosition(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         BarDataSet barDataSet1 = new BarDataSet(barEntries1(),"Less than 30mins");
         barDataSet1.setColors(Color.RED);
@@ -109,19 +122,23 @@ public class Graphs extends AppCompatActivity implements GraphsSelectedButton {
     public void onItemSelected(AdapterView<?>parent, View view, int position){
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
+
+
     }
 
     public class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
-
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
             // An item was selected. You can retrieve the selected item using
             // parent.getItemAtPosition(pos)
+
+
         }
 
         public void onNothingSelected(AdapterView<?> parent) {
             // Another interface callback
         }
+
     }
 
 
