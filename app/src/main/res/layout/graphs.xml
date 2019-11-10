@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Graphs">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barChart"
-        android:layout_width="match_parent"
-        android:layout_height="400sp">
 
-    </com.github.mikephil.charting.charts.BarChart>
+  <com.github.mikephil.charting.charts.BarChart
+      android:id="@+id/barChart"
+      android:layout_width="match_parent"
+      android:layout_height="400dp"
+    >
+
+  </com.github.mikephil.charting.charts.BarChart>
+
+  <!--<Spinner-->
+      <!--android:id="@+id/times"-->
+      <!--android:layout_width="wrap_content"-->
+      <!--android:layout_height="wrap_content"-->
+      <!--android:layout_marginLeft="@+id/barChart"-->
+      <!--android:layout_marginTop="@+id/barChart"></Spinner>-->
+
+  <Spinner
+      android:id="@+id/times"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      />
+
+  <!--<Spinner-->
+      <!--android:id="@+id/sp"-->
+      <!--android:layout_width="match_parent"-->
+      <!--android:layout_height="wrap_content"-->
+      <!--android:layout_marginTop="5dp"-->
+      <!--/>-->
 
 </RelativeLayout>

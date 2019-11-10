@@ -13,4 +13,13 @@
     <string name="title_activity_ranks">Ranks</string>
     <string name="title_activity_routes">Routes</string>
     <string name="title_activity_questionnaire">Questionnaire</string>
+
+    <string-array name="times">
+        <item> "03-05h"</item>
+       <item>"06-09h"</item>
+        <item>"10-12h"</item>
+        <item>"13-16h"</item>
+        <item>"17-19h"</item>
+        <item>"20-23h"</item>
+    </string-array>
 </resources>
