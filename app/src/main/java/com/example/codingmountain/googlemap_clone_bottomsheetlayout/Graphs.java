@@ -39,6 +39,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -48,6 +50,15 @@ public class Graphs extends AppCompatActivity implements GraphsSelectedButton {
 
      BarChart barChart;
 
+    boolean shuffle=false;
+
+    BarDataSet barDataSet1;
+    BarDataSet barDataSet2;
+    BarDataSet barDataSet3;
+
+    ArrayList<BarEntry>data1;
+    ArrayList<BarEntry>data2;
+    ArrayList<BarEntry>data3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,17 +73,40 @@ public class Graphs extends AppCompatActivity implements GraphsSelectedButton {
 //        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
         String [] timeSchedule = new String[]{"3-5am","6-9am","10-12pm","13-16pm","17-19pm","19-21pm","21-23pm"};
-        ArrayList<String>test=new ArrayList<>(Arrays.asList(timeSchedule));
+        final ArrayList<String>test=new ArrayList<>(Arrays.asList(timeSchedule));
 
         Spinner spinner = (Spinner) findViewById(id.times);
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, array.times, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        data1=barEntries1();
+        barDataSet1 = new BarDataSet(data1,"Less than 30mins");
+        barDataSet1.setColors(Color.RED);
+        data2=barEntries2();
+        barDataSet2 = new BarDataSet(data2,"Within an hour");
+        barDataSet2.setColors(Color.GREEN);
+        data3=barEntries3();
+        barDataSet3 = new BarDataSet(data3,"Above an hour");
+        barDataSet3.setColors(Color.MAGENTA);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //String travel_type = String.valueOf(adapterView.getItemAtPosition(position));
+                if(shuffle==true){
+                    shuffle(data1,data2,data3);
+
+                    barDataSet1 = new BarDataSet(data1,"Less than 30mins");
+                    barDataSet2 = new BarDataSet(data2,"Within an hour");
+                    barDataSet3 = new BarDataSet(data3,"Above an hour");
+                    barChart.invalidate();
+
+                }
+                else {
+                    shuffle=true;
+                }
+                Toast.makeText(getApplicationContext(),"First",Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -81,12 +115,6 @@ public class Graphs extends AppCompatActivity implements GraphsSelectedButton {
             }
         });
 
-        BarDataSet barDataSet1 = new BarDataSet(barEntries1(),"Less than 30mins");
-        barDataSet1.setColors(Color.RED);
-        BarDataSet barDataSet2 = new BarDataSet(barEntries2(),"Within an hour");
-        barDataSet2.setColors(Color.GREEN);
-        BarDataSet barDataSet3 = new BarDataSet(barEntries3(),"Above an hour");
-        barDataSet3.setColors(Color.MAGENTA);
 
         ArrayList<BarEntry>yValues = new ArrayList<>();
 
@@ -140,6 +168,13 @@ public class Graphs extends AppCompatActivity implements GraphsSelectedButton {
         }
 
     }
+
+    private void shuffle(ArrayList<BarEntry>b1,ArrayList<BarEntry>b2,ArrayList<BarEntry>b3){
+       Collections.shuffle(b1);
+        Collections.shuffle(b2);
+        Collections.shuffle(b3);
+    }
+
 
 
     private ArrayList<BarEntry>barEntries1(){
