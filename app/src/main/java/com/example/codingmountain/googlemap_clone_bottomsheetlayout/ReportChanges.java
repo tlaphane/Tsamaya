@@ -18,7 +18,7 @@ import org.w3c.dom.Text;
 
 public class ReportChanges extends Activity implements View.OnClickListener {
 
-    private Button graphs;
+   // private Button graphs;
 
 
     RatingBar ratingBar;
@@ -46,7 +46,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reports);
 
-        graphs = (Button)findViewById(R.id.chart1);
+
 
         master=(LinearLayout)findViewById(R.id.master);
         //map textviews to id
@@ -70,7 +70,6 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         priceNotchanged=(TextView)findViewById(R.id.priceNotchanged);
 
         //bind onclick listeners
-        graphs.setOnClickListener(this);
         ratingBar.setOnClickListener(this);
         rateInfo.setOnClickListener(this);
 
@@ -97,15 +96,6 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             }
         });
 
-
-        graphs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ReportChanges.this,Graphs.class);
-                startActivity(intent);
-                Toast.makeText(ReportChanges.this,"Statistics",Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -177,7 +167,6 @@ public class ReportChanges extends Activity implements View.OnClickListener {
         }
 
         //correctness
-
         else if(view.equals(rateInfo)){
             ((ViewGroup)rateInfo.getParent()).removeView(rateInfo);
             ((ViewGroup)ratingBar.getParent()).removeView(ratingBar);
@@ -185,11 +174,5 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(),"Info is valid",Toast.LENGTH_SHORT).show();
         }
 
-        //graphs
-
-        else if( view.equals(graphs)){
-          //  ((ViewGroup)graphs.getParent()).removeView(graphs);
-
-        }
     }
 }

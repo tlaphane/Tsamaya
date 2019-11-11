@@ -362,31 +362,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
-       // ButterKnife.bind(this);
-//        Traffic = findViewById(R.id.traffic);
-//        Traffic.setOnClickListener(new View.OnClickListener() {
-//
 
-
-//        tapactionlayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(mBottomSheetBehavior1.getState()==BottomSheetBehavior.STATE_COLLAPSED)
-//                {
-//                    mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                }
-//            }
-//        });
-
-        // Find the toolbar view inside the activity layout
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        // Sets the Toolbar to act as the ActionBar for this Activity window.
-//        // Make sure the toolbar exists in the activity and is not null
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-//        getSupportActionBar().setTitle("Search here");
 
 
         mapFragment.getMapAsync(this);

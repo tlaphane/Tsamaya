@@ -301,11 +301,51 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/buttonstyle"
+
+        card_view:cardCornerRadius="4dp"
+        card_view:cardBackgroundColor="#00000000">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/chart1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/buttonstyle"
+                android:padding="10dp"
+                android:text="Graphs"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
 
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
+
+    <!--<Button-->
+    <!--android:id="@+id/chart1"-->
+    <!--android:text="Graphs"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="@dimen/standard_55" />-->
 
     <!--<merge xmlns:android="http://schemas.android.com/apk/res/android">-->
     <!--<include layout="@layout/activity_routes"-->
