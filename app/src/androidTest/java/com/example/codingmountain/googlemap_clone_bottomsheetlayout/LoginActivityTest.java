@@ -17,7 +17,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiSelector;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-
+import android.widget.Button;
 
 
 import org.junit.Before;
@@ -28,12 +28,17 @@ import org.junit.Test;
 import java.util.concurrent.TimeUnit;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static android.support.test.espresso.Espresso.closeSoftKeyboard;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
 
 
@@ -48,6 +53,14 @@ public class LoginActivityTest {
     @Before
     public void setUp() throws Exception {
         loginActivity = activityActivityTestRule.getActivity();
+
+//            getInstrumentation().getUiAutomation().executeShellCommand(
+//                    "pm grant " + getTargetContext().getPackageName()
+//                            + " android.permission.ACCESS_FINE_LOCATION");
+//            getInstrumentation().getUiAutomation().executeShellCommand(
+//                    "pm grant " + getTargetContext().getPackageName()
+//                            + " android.permission.INTERNET");
+
     }
 
     @Test
@@ -69,23 +82,33 @@ public class LoginActivityTest {
         assertNotNull(loginActivity.findViewById(R.id.input_email));
         assertNotNull(loginActivity.findViewById(R.id.input_password));
 
+//         onView(withId(R.id.btn_login)).perform(click());
+        closeSoftKeyboard();
+
+        onView(withId(R.id.btn_login)).perform(click());
+        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"));
+        closeSoftKeyboard();
+//         onView(withId(R.id.input_password)).perform(typeText("123457"));
+//         closeSoftKeyboard();
+//         Thread.sleep(1000);
         onView(withId(R.id.btn_login)).perform(click());
 
-        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.input_password)).perform(typeText("123457"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.btn_login)).perform(click());
+//         TimeUnit.SECONDS.sleep(2);
 
-        TimeUnit.SECONDS.sleep(2);
+//         onView(withId(R.id.input_password)).perform(clearText(),typeText("123456"));
+        onView(withId(R.id.input_password)).perform(typeText("123456"));
+        closeSoftKeyboard();
 
-        onView(withId(R.id.input_password)).perform(clearText(),typeText("123456"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.btn_login)).perform(click());
+//         onView(withId(R.id.btn_login)).perform(scrollTo()).perform(click());
+//         onView(withId(R.id.btn_login)).check(matches((isEnabled())));
+        onView(withId(R.id.btn_login)).perform(ViewActions.click());
 
 
         Activity MapActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
-
-        assertNotNull(MapActivity);
-        TimeUnit.SECONDS.sleep(2);
-
+//
+////         assertNotNull(MapActivity);
+//         TimeUnit.SECONDS.sleep(2);
+//
         if(checkPermission()){
             System.out.println("Alec has permission");
         }else{
@@ -97,7 +120,7 @@ public class LoginActivityTest {
                     UiObject allowPermissions = device.findObject(new UiSelector()
                             .clickable(true)
                             .checkable(false)
-                            .index(0));
+                            .index(1));
                     if (allowPermissions.exists()) {
                         allowPermissions.click();
                     }
