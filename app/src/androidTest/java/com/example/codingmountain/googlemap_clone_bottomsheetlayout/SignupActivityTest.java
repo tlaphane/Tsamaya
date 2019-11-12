@@ -44,9 +44,6 @@ public class SignupActivityTest {
         loginActivity = activityActivityTestRule.getActivity();
     }
 
-    @Test
-    public void onCreate() {
-    }
 
     @Test
     public void signup() throws InterruptedException {
@@ -68,14 +65,12 @@ public class SignupActivityTest {
         onView(withId(R.id.link_login)).perform(click());
         Activity log = getInstrumentation().waitForMonitorWithTimeout(loginMonitor,10000);
 
-        TimeUnit.SECONDS.sleep(3);
 
         assertNotNull(log.findViewById(R.id.link_signup));
         onView(withId(R.id.link_signup)).perform(click());
 
         //empty
         onView(withId(R.id.btn_signup)).perform(click());
-        TimeUnit.SECONDS.sleep(2);
 
         //already existing email
         onView(withId(R.id.input_name)).perform(typeText("name"), ViewActions.closeSoftKeyboard());
@@ -84,16 +79,13 @@ public class SignupActivityTest {
 
         onView(withId(R.id.btn_signup)).perform(click());
 
-        TimeUnit.SECONDS.sleep(2);
 
         //new email
-        onView(withId(R.id.input_name)).perform(clearText(),typeText("name"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.input_email)).perform(clearText(),typeText("viledwdjya@gmail.com"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.input_password)).perform(clearText(),typeText("123456"), ViewActions.closeSoftKeyboard());
-
-        onView(withId(R.id.btn_signup)).perform(click());
-
-        TimeUnit.SECONDS.sleep(5);
+//         onView(withId(R.id.input_name)).perform(clearText(),typeText("name"), ViewActions.closeSoftKeyboard());
+//         onView(withId(R.id.input_email)).perform(clearText(),typeText("viledwdjya@gmail.com"), ViewActions.closeSoftKeyboard());
+//         onView(withId(R.id.input_password)).perform(clearText(),typeText("123456"), ViewActions.closeSoftKeyboard());
+//
+//         onView(withId(R.id.btn_signup)).perform(click());
 
 
         signUpActivity.finish();
