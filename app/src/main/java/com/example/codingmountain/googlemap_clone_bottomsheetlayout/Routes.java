@@ -132,6 +132,8 @@ public class Routes extends AppCompatActivity {
 
         final TextView t,n,p;
 
+        final TextView graphs;
+
 
 
         //   Button btnFollow;
@@ -147,6 +149,8 @@ public class Routes extends AppCompatActivity {
 
         p=(TextView)myDialog.findViewById(R.id.prices);
         p.setText(prices);
+
+        graphs=(TextView)myDialog.findViewById(R.id.chart1);
 
 
         waitingtime=(TextView)myDialog.findViewById(R.id.waitingtime);
@@ -164,6 +168,15 @@ public class Routes extends AppCompatActivity {
         priceNotchanged=(TextView)myDialog.findViewById(R.id.priceNotchanged);
 
         //bind onclick listeners
+
+        graphs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Graphs.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Stats",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         belowThirty.setOnClickListener(new View.OnClickListener() {
             @Override
