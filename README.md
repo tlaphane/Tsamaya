@@ -13,7 +13,7 @@ to plan their trip with ease and account for safety travels
 
 |Release|Build        |Test    |
 |-------|-------------|-------:|
-|[![GitHub Release](https://img.shields.io/badge/release-v4.0-blue.svg)](https://github.com/tlaphane/Tsamaya/releases) |[![Build Status](https://travis-ci.org/spmabz/Tsamaya.svg?branch=master)](https://travis-ci.org/spmabz/Tsamaya)|[![codecov](https://codecov.io/gh/AlecMbanga/Tsamaya/branch/master/graph/badge.svg)](https://codecov.io/gh/AlecMbanga/Tsamaya)|
+|[![GitHub Release](https://img.shields.io/badge/release-v4.0-blue.svg)](https://github.com/tlaphane/Tsamaya/releases) |[![Build Status](https://travis-ci.org/AlecMbanga/Tsamaya.svg?branch=master)](https://travis-ci.org/AlecMbanga/Tsamaya)|[![codecov](https://codecov.io/gh/AlecMbanga/Tsamaya/branch/master/graph/badge.svg)](https://codecov.io/gh/AlecMbanga/Tsamaya)|
 
 
 ## Table of Contents
