@@ -240,6 +240,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Ranks.class);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude", longitude);
                 startActivity(intent);
 
             }
@@ -686,6 +688,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         return y;
     }
+
+
 
 
 }

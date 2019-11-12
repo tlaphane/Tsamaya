@@ -31,7 +31,9 @@ public class Routes extends AppCompatActivity {
     public ListView mListView;
 
     private Button back;
+
     Dialog myDialog;
+
     String name,prices;
 
     @Override
@@ -47,6 +49,8 @@ public class Routes extends AppCompatActivity {
 
         back = (Button) findViewById(R.id.back);
 
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,9 +59,10 @@ public class Routes extends AppCompatActivity {
             }
         });
 
-
-        final String TaxiRank = intent.getStringExtra("Rank_name");
+        final String TaxiRank = intent.getStringExtra("Rank_name1");
         String url = "https://tsamaya-42805.firebaseio.com/Ranks/"+TaxiRank;
+        System.out.println(url);
+
         mRef = new Firebase(url);
 
         mListView = (ListView) findViewById(R.id.listRoutes);
@@ -96,7 +101,10 @@ public class Routes extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-
+//                Intent intent = new Intent(getApplicationContext(), ReportChanges.class);
+//                Intent intent = new Intent(getApplicationContext(), Questionnaire.class);
+//                intent.putExtra("Rank_name",mRoutes.get(i));
+//                startActivity(intent);
                 ShowPopup(view,TaxiRank,mRoutesd.get(i),mRoutesp.get(i));
 
 
@@ -108,19 +116,23 @@ public class Routes extends AppCompatActivity {
 
     public void ShowPopup(View v, String TaxiRank,String name,String prices) {
         TextView txtclose;
-
         final TextView belowThirty;
         final TextView withinHour;
         final TextView overHour;
+
         final TextView taxiPresent;
         final TextView taxiAbsent;
+
         final TextView waitingtime;
         final TextView waitTaxi;
         final TextView price;
+
         final TextView priceChanged;
         final TextView priceNotchanged;
+
         final TextView t,n,p;
-        final TextView graphs;
+
+
 
         //   Button btnFollow;
         myDialog.setContentView(R.layout.custompopup);
@@ -136,7 +148,6 @@ public class Routes extends AppCompatActivity {
         p=(TextView)myDialog.findViewById(R.id.prices);
         p.setText(prices);
 
-        graphs=(TextView)myDialog.findViewById(R.id.chart1);
 
         waitingtime=(TextView)myDialog.findViewById(R.id.waitingtime);
         waitTaxi=(TextView)myDialog.findViewById(R.id.waitTaxi);
@@ -151,15 +162,6 @@ public class Routes extends AppCompatActivity {
 
         priceChanged=(TextView)myDialog.findViewById(R.id.priceChanged);
         priceNotchanged=(TextView)myDialog.findViewById(R.id.priceNotchanged);
-
-        graphs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Routes.this,Graphs.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),"Stats",Toast.LENGTH_SHORT).show();
-            }
-        });
 
         //bind onclick listeners
 
@@ -242,6 +244,7 @@ public class Routes extends AppCompatActivity {
             }
         });
 
+//        btnFollow = (Button) myDialog.findViewById(R.id.btnfollow);
         txtclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

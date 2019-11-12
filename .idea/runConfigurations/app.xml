@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" singleton="true">
+  <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" editBeforeRun="true" activateToolWindowBeforeRun="false" singleton="true">
     <module name="app" />
     <option name="DEPLOY" value="true" />
     <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -42,7 +42,7 @@
       <option name="SHOW_OPTIMIZED_WARNING" value="true" />
     </Native>
     <Profilers>
-      <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+      <option name="ADVANCED_PROFILING_ENABLED" value="true" />
       <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
       <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
     </Profilers>
@@ -50,6 +50,8 @@
     <option name="ACTIVITY_CLASS" value="" />
     <method v="2">
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      <option name="MakeProject" enabled="true" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="" />
     </method>
   </configuration>
 </component>
