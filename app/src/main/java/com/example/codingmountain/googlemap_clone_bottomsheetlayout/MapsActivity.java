@@ -256,14 +256,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
 
-        FloatingActionButton fab4 = findViewById(R.id.fab_action4);
-        fab4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ReportChanges.class);
-                startActivity(intent);
-            }
-        });
+//        FloatingActionButton fab4 = findViewById(R.id.fab_action4);
+//        fab4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), ReportChanges.class);
+//                startActivity(intent);
+//            }
+//        });
 
         FloatingActionButton fab3 = findViewById(R.id.fab_action3);
         fab3.setOnClickListener(new View.OnClickListener() {
@@ -291,79 +291,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        btnRanks.setVisibility(View.GONE);
 //        btnReports.setVisibility(View.GONE);
 //        btnLogout.setVisibility(View.GONE);
-//
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(!isFABOpen){
-//                    btnRanks.setVisibility(View.VISIBLE);
-//                    btnReports.setVisibility(View.VISIBLE);
-//                    btnLogout.setVisibility(View.VISIBLE);
-//                    showMenu();
-//                }else{
-//
-//                    closeMenu();
-//                    btnRanks.setVisibility(View.GONE);
-//                    btnReports.setVisibility(View.GONE);
-//                    btnLogout.setVisibility(View.GONE);
-//                }
-//            }
-//        });
-//
-//        btnRanks.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), Ranks.class);
-//                startActivity(intent);
-//            }
-//        });
-//        btnReports.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), RatingActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        btnLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
-        //tapactionlayout = (LinearLayout) findViewById(R.id.tap_action_layout);
-        //bottomSheet = findViewById(R.id.bottom_sheet1);
-        //mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
-        //mBottomSheetBehavior1.setPeekHeight(120);
-//        mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//        mBottomSheetBehavior1.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-//            @Override
-//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-//                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-//                    tapactionlayout.setVisibility(View.VISIBLE);
-//                }
-//
-//                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-//                    tapactionlayout.setVisibility(View.GONE);
-//                }
-//
-//                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-//                    tapactionlayout.setVisibility(View.GONE);
-//                }
-//            }
-//
-//            @Override
-//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-//
-//            }
-//        });
-
-
-
-
-
 
         mapFragment.getMapAsync(this);
         init();
